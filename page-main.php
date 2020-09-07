@@ -9,30 +9,24 @@
 
 <?php get_template_part('intro'); ?>
 
-    <div class="container posts">
-        <?php
-            while(have_posts()): the_post(); ?>
-            <div <?php post_class() ?>>
-                <div class="row">
-                    <div class="col-12 my-3">
-                        <?php
-                            if(has_post_thumbnail()){
-                                //$thumbnail_url = get_the_post_thumbnail_url(null, 'medium' );
-                                the_post_thumbnail("large", ["class" => "img-fluid"]);
-                            }
-                        
-                        ?>
+    <div class="container my-5">
+        <?php the_field("about_us"); ?>
+    </div>
+    <div class="container">
+        <div class="row  justify-content-center">
+            <h2 class="display-4"><?php the_field("services_title"); ?></h2>
+        </div>
+        <div class="row">
+            <?php if( have_rows('services') ): ?>
+                <?php while( have_rows('services') ): the_row(); ?>
+                    <div class="col">
+                        <h1><?php the_sub_field('heading'); ?></h1>
+                        <p> <?php the_sub_field('description'); ?></p>
                     </div>
-                    <div class="col-12 my-3">
-                        <h1 class="text-uppercase"><?php the_title() ?></h1>
-                        <h5><i> On <?php echo get_the_date(); ?></i> by <?php echo get_the_author_meta("first_name") ?></h5>
-                        <p><?php the_content(); ?></p>
-                    </div>
-                </div>
-            </div>
-        <?php
-            endwhile;
-        ?>
+
+                <?php endwhile; ?>
+            <?php endif; ?>
+        </div>
     </div>
 
 
