@@ -6,6 +6,15 @@ function boating_initialize(){
     add_theme_support("post-thumbnails");
 
     register_nav_menu("top_menu", __("Top Menu", "boating"));
+
+    add_theme_support( 'custom-logo', array(
+        'height'      => 100,
+        'width'       => 100,
+        'flex-height' => true,
+        'flex-width'  => true,
+        'header-text' => array( 'site-title', 'site-description' )
+    ));
+
 }
 add_action("after_setup_theme", "boating_initialize");
 
