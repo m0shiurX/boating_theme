@@ -7,3 +7,8 @@ img {
 .wp-calendar-table {
     width: 100%;
 }
+.header_image {
+    width: 100%;
+    object-fit: cover;
+    max-height: 600px;
+}

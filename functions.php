@@ -7,14 +7,33 @@ function boating_initialize(){
 
     register_nav_menu("top_menu", __("Top Menu", "boating"));
 
-    add_theme_support( 'custom-logo', array(
+    add_theme_support( 'custom-logo', [
         'height'      => 100,
         'width'       => 100,
         'flex-height' => true,
         'flex-width'  => true,
         'header-text' => array( 'site-title', 'site-description' )
-    ));
+    ]);
 
+    // background
+    add_theme_support( "custom-background", [
+        'default-color'          => '',
+	    'default-image'          => '',
+	    'default-repeat'         => 'no-repeat',
+	    'default-position-x'     => 'center',
+        'default-position-y'     => 'center',
+        'default-size'           => 'cover',
+	    'default-attachment'     => 'fixed',
+    ]);
+    // custom header
+    add_theme_support( "custom-header", [
+        'header-text' => true,
+        'default-text-color' => '#333',
+        'width' => 600,
+        'height' => 300,
+        'flex-height' => true,
+        'flex-width'  => true,
+    ]);
 }
 add_action("after_setup_theme", "boating_initialize");
 
