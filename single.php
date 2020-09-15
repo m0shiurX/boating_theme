@@ -11,7 +11,6 @@
                     <div class="col-12 my-3">
                         <?php
                             if(has_post_thumbnail()){
-                                //$thumbnail_url = get_the_post_thumbnail_url(null, 'medium' );
                                 the_post_thumbnail("large", ["class" => "img-fluid"]);
                             }
                         
